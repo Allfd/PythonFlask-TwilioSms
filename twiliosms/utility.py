@@ -8,7 +8,7 @@ logger.setLevel(logging.INFO)
 
 formatter = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
 
-file_handler = logging.FileHandler('C:/Users/bhardhi/PycharmProjects/EstesTwilioSMS/app/appFiles/app.log')
+file_handler = logging.FileHandler('appFiles/app.log')
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -17,7 +17,7 @@ logger.addHandler(file_handler)
 class Open_File():
     """Open_File Class will open file/close in Directory"""
     def __init__(self, filename, mode):
-        self.filenam e= filename
+        self.filename= filename
         self.mode = mode
 
     def __enter__(self):
@@ -56,13 +56,13 @@ class Member:
 
         Member.num_of_team_members += 1
 
-        f = open("C:/Users/bhardhi/PycharmProjects/EstesTwilioSMS/app/appFiles/teamMembers.txt", "a+")
+        f = open("appFiles/teamMembers.txt", "a+")
         f.write('{0}, {1}, {2}, {3}\n'.format(first, last, phone_number ,team_name))
         f.close()
         logger.info('Created Team Member: {} - {} -{}'.format(self.first, self.last, self.phone_number))
 
     def fullname(self):
-        retur n('{} {}'.format(self.first ,self.last))
+        return('{} {}'.format(self.first ,self.last))
 
     def is_valid_num(self):
         if len(self.phone_number) == 10:
